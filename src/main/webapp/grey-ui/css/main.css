@@ -1,0 +1,189 @@
+@charset "utf-8";
+
+@import "reset.css";
+@import "grid.css";
+@import "tools.css";
+
+@import "facebox.css";
+
+body { background:url(../images/header-bg.gif) 0 0 repeat-x #FFF; }
+
+/* cabecalho **********************************/
+#cabecalho { display:block; height:40px; }
+#cabecalho .titulo-pagina
+{
+	display:inline-block; float:left; margin-right:30px;
+	font:normal bold 18px/38px arial; height:100%; color:#FFF; }
+#cabecalho a { color:#CCC; }
+#cabecalho a:hover { color:#FFF; }
+#cabecalho .caixa-usuario { position:absolute; top:14px; right:0; font-size:11px; }
+
+.menu-principal { display:block; margin-top:11px; }
+.menu-principal .item
+{
+	margin-right:6px; padding:3px; text-transform:lowercase; font:normal normal 12px/14px arial; }
+.menu-principal .item:hover { background:#303030; }
+
+/* corpo ***************************************/
+#corpo { padding:45px 0; }
+
+.caixa-conteudo h1, .caixa-conteudo h2, .caixa-conteudo h3, .caixa-conteudo h4, .caixa-conteudo h5 { margin-bottom:12px; }
+.caixa-conteudo h1 { font-size:20px; }
+.caixa-conteudo h2 { font-size:18px; }
+.caixa-conteudo h3 { font-size:16px; }
+.caixa-conteudo h4 { font-size:14px; }
+.caixa-conteudo h5 { font-size:14px; }
+.caixa-conteudo h6 { font-size:14px; }
+
+/*
+ * Estabelecer padrão de comportamento para
+ * alguns elementos comuns dentro do corpo da UI
+ */
+#corpo ul { padding-left: 40px; margin-bottom:16px; }
+#corpo ul li { list-style: disc; display: list-item; margin: 2px 0; }
+
+#corpo ol { padding-left: 40px; margin-bottom:16px; }
+#corpo ol li { list-style:decimal; display: list-item; margin: 2px 0; }
+#corpo ol ol li { list-style:lower-alpha; }
+
+#corpo p { font-size:13px; line-height:155%; margin-bottom:16px; }
+
+/* rodape ***************************************/
+#rodape { padding-top:20px; }
+#rodape .inner { border-top:1px solid #CCC; padding-top:10px; padding-bottom:25px; }
+#rodape .copy { float:right; font-size:11px; color:#999; margin-top:1px; }
+
+.menu-rodape { text-align:left; }
+.menu-rodape .item { color:#666; margin-right:7px; }
+.menu-rodape .item:hover { color:#000; }
+
+/** Headers *********************************/
+.titulo-padrao
+{
+	display:block; color:#333; padding:5px 0 10px 0; border-bottom:#E5E5E5;
+	font:normal bold 30px/32px arial; margin-bottom:16px; border-bottom:1px solid #E5E5E5; }
+.titulo-padrao2
+{
+	display:block; color:#444; padding:3px 0; border-bottom:#E5E5E5;
+	font:normal bold 24px/28px arial; margin-bottom:10px; }
+	
+/** Tabela **********************************/
+.tabela-padrao td
+{
+	font:normal normal 11px/14px arial; color:#333; padding:10px; border-bottom:1px solid #E3E3E3;  }
+.tabela-padrao thead td
+{
+	background:#E5E5E5; border-top:2px solid #616161; border-bottom-color:#DDD; color:#515862;
+	padding-top:12px; padding-bottom:12px; text-transform:uppercase; font-weight:bold; }
+.tabela-padrao .alterna td { background:#F5F5F5; border-top:0; color:#222; }
+.tabela-padrao .ultima-linha td { border-bottom-color:#BBB; }
+
+/** Esquema de paginação **********************/
+.paginas { text-align:left; display:block; padding:13px 0 7px 9px; float:left; }
+.paginas .pagina {
+	display:inline; padding:2px;
+	font:normal normal 13px/15px arial; color:#555;
+}
+.paginas .pagina:hover { color:#000; text-decoration:underline; }
+.paginas .pagina-ativa { color:blue; text-decoration:underline; font-weight:bold; }
+
+.botoes-tabela-rodape { float:right; text-align:right; padding:10px 9px 7px 0; }
+
+/** Caixa de mensagem ************************/
+.mensagem {
+	background:#F9F9F9; border:1px solid #DDD; padding:13px;
+	color:#333; font:normal normal 13px/17px arial; margin:5px 0 12px 0; }
+.mensagem .titulo { display:block; font-size:16px; }
+.msg-sucesso {
+	padding-left:58px; background:url(../images/confirm-32.png) 14px 13px no-repeat #EBF7D7;
+	border:1px solid #CEE8A6; }
+.msg-aviso {
+	padding-left:58px; background:url(../images/warning-32.png) 14px 13px no-repeat #FFF5CC;
+	border:1px solid #F2DD8C;
+}
+.msg-erro {
+	padding-left:58px; background:url(../images/error-32.png) 14px 13px no-repeat #FEEBEB;
+	border:1px solid #FFAEAE;
+}
+
+/** Esquema de forms *************************/
+.formulario {
+	display:block;
+	border:1px solid #DDD;
+	border-bottom-color:#BBB;
+	background:#F7F7F7;
+}
+
+.caixa-formulario {
+	padding:20px;
+	display:block;
+	border:1px solid #FFF;
+	background:#F4F4F4;
+}
+.caixa-formulario .mensagem { margin-bottom:20px; }
+
+.fieldset-padrao { display:block; margin-bottom:20px; }
+.fieldset-padrao .legend-wrapper {
+	display:block;
+	font: normal bold 20px/22px arial;
+	color:#333; 
+	margin-bottom:15px;
+	padding-bottom:5px;
+	border-bottom:1px solid #DFDFDF;
+}
+
+.titulo-formulario
+{
+	display:block; color:#333; font:normal bold 28px/30px arial;
+	margin-bottom:16px;
+	margin-left:20px; }
+	
+.caixa-input { display:block; margin-bottom:13px; }
+.caixa-input .lb { 
+	display:inline-block; float:left; margin-right:10px;
+	font:normal normal 14px/16px arial;
+	color:#333; text-align:right; margin-top:4px;
+}
+.caixa-input .ipt-wrapper { 
+	display:block; float:left; margin-left:10px; font-size:14px;
+}
+.caixa-input .ipt {
+	padding:4px; border:1px solid #CDCDCD; border-top-color:#888; display:block;
+	font-size:14px;
+}
+.caixa-input .ipt:focus { border-color:#888; border-top-color:#666; box-shadow:0 0 3px #888; }
+
+.caixa-input .slct {
+	border:1px solid #CDCDCD; border-top-color:#888; display:block;
+	font-size:14px; padding:2px;
+}
+
+.caixa-input .comment { display:block; padding:4px 2px; font:normal normal 11px/14px arial; color:#666; }
+
+.error .lb { color:red; font-weight:bold; }
+.error .ipt { border:2px solid red; }
+.error .ipt:focus { border:2px solid red; }
+.error .error-msg { display:block; padding:3px; font:normal normal 12px/14px arial; color:red; }
+
+.caixa-buttons {
+	display:block; padding-top:20px; border-top:1px solid #E4E4E4; text-align:left;
+}
+
+.caixa-buttons .button { padding:6px 10px; }
+
+.lnk-cancelar { font:normal normal 14px/16px arial; color:red; text-decoration:underline; }
+
+.divisor { display:block; height:15px; overflow:hidden; margin-bottom:20px; border-bottom:1px solid #E4E4E4; }
+
+
+/** Para ser usado em conjunto com o facebox **/
+.form-modal-title {
+	display:block; padding:16px 20px; font:normal normal 26px/28px arial;
+	color:#444; background:#f5f5f5; 
+	border-bottom:1px solid #E4E4E4;
+}
+
+.form-modal { display:block; width:480px; padding:20px; }
+.form-modal .lb { width:120px; }
+
+
