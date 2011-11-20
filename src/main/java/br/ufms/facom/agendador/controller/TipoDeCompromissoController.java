@@ -44,7 +44,7 @@ public class TipoDeCompromissoController {
         
         // Em caso de error volta ao formulário
         validator.onErrorForwardTo(TipoDeCompromissoController.class).novo();
-        result.on(Exception.class).forwardTo(TipoDeCompromissoController.class).novo();
+        result.on(Exception.class).redirectTo(TipoDeCompromissoController.class).novo();
         
         tipoDeCompromissoRepository.add(tipoDeCompromisso);
         

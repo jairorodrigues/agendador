@@ -631,6 +631,12 @@ jQuery.validator.addMethod("rg", function(value, element) {
     return rgValido(value);
 }, "RG inválido!");
 
+jQuery.validator.addMethod("horario", function(value, element) {
+    return RegExp(/^[0-23]{2}:[0-59]{2}$/).test(value);
+}, "Horário inválido!");
+
+
+
 
 function rgValido (numero)
 {

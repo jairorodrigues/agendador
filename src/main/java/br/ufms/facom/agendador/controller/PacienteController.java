@@ -45,7 +45,7 @@ public class PacienteController {
         
         // Em caso de error volta ao formulário
         validator.onErrorForwardTo(PacienteController.class).novo();
-        result.on(Exception.class).forwardTo(PacienteController.class).novo();
+        result.on(Exception.class).redirectTo(PacienteController.class).novo();
         
         pacienteRepository.add(paciente);
         

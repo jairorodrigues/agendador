@@ -94,22 +94,18 @@
             
             $form.validate({
                 rules: {
-                    'paciente.nome': "required",
-                    'paciente.email': {email:true, required:true},
-                    'paciente.telefone': {required:true, telefone:true},
-                    'paciente.cpf': {cpf:true},
-                    'paciente.rg': {required:true}
+                    'compromisso.paciente.id': {required:true},
+                    'compromisso.tipo.id': {required:true},
+                    'compromisso.data': {required:true},
+                    'compromisso.horarioInicio': {required:true, horario:true},
+                    'compromisso.horarioFim': {required:true, horario:true}
                 },
                 messages: {
-                    'paciente.nome': "Campo requerido!",
-                    'paciente.rg': {required:"Campo requerido!"},
-                    'paciente.email': {email:"E-mail inválido", required:"Campo requerido!"},
-                    'paciente.telefone': {required:"Campo requerido!"},
-                    'paciente.endereco.cep': {required:"Campo requerido!"},
-                    'paciente.endereco.logradouro': {required:"Campo requerido!"},
-                    'paciente.endereco.bairro': {required:"Campo requerido!"},
-                    'paciente.endereco.numero': {required:"Campo requerido!", integer:"Número inválido!"},
-                    'paciente.endereco.cidade': {required:"Campo requerido!"}
+                    'compromisso.paciente.id': {required:"Campo requerido!"},
+                    'compromisso.tipo.id': {required:"Campo requerido!"},
+                    'compromisso.data': {required:"Campo requerido!"},
+                    'compromisso.horarioInicio': {required:"Campo requerido!"},
+                    'compromisso.horarioFim': {required:"Campo requerido!"}
                 }
             });
             

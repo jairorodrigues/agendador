@@ -55,7 +55,7 @@ public class CompromissoController {
         
         // Em caso de error volta ao formulário
         validator.onErrorForwardTo(CompromissoController.class).novo();
-        result.on(Exception.class).forwardTo(CompromissoController.class).novo();
+        result.on(Exception.class).redirectTo(CompromissoController.class).novo();
         
         compromissoRepository.add(compromisso);
         

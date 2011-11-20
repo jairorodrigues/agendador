@@ -44,7 +44,7 @@ public class ConvenioController {
         
         // Em caso de error volta ao formulário
         validator.onErrorForwardTo(ConvenioController.class).novo();
-        result.on(Exception.class).forwardTo(ConvenioController.class).novo();
+        result.on(Exception.class).redirectTo(ConvenioController.class).novo();
         
         convenioRepository.add(convenio);
         

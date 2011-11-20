@@ -4,6 +4,7 @@
  */
 package br.ufms.facom.agendador.model;
 
+import br.ufms.facom.agendador.exception.ArgumentoInvalidoException;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
@@ -54,6 +55,8 @@ public class Compromisso implements Serializable
     }
 
     public void setHorarioFim(String horarioFim) {
+        
+        verificarHorarioValido(horarioFim);
         this.horarioFim = horarioFim;
     }
 
@@ -62,6 +65,9 @@ public class Compromisso implements Serializable
     }
 
     public void setHorarioInicio(String horarioInicio) {
+        
+        verificarHorarioValido(horarioInicio);
+        
         this.horarioInicio = horarioInicio;
     }
 
@@ -114,5 +120,10 @@ public class Compromisso implements Serializable
     @Override
     public String toString() {
         return "Compromisso{" + "data=" + data + ", tipo=" + tipo + "}";
+    }
+
+    private void verificarHorarioValido(String horarioFim) {
+        if (!horarioFim.matches("^[0-23]{2}:[0-59]{2}$"))
+            throw new ArgumentoInvalidoException("Horário inválido");
     }
 }
