@@ -632,7 +632,7 @@ jQuery.validator.addMethod("rg", function(value, element) {
 }, "RG inválido!");
 
 jQuery.validator.addMethod("horario", function(value, element) {
-    return RegExp(/^[0-23]{2}:[0-59]{2}$/).test(value);
+    return RegExp(/^([0-1][0-9]|[2][0-3])(:([0-5][0-9])){1,2}$/).test(value);
 }, "Horário inválido!");
 
 

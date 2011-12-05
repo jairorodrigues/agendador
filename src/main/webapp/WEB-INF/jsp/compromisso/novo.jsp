@@ -52,6 +52,25 @@
                         </div>
                     </div>
                     <div class="caixa-input clearfix">
+                        <label class="lb grid-3">Profissional</label>
+                        <div class="ipt-wrapper">
+                            <select name="compromisso.profissional.id" class="slct">
+                                <c:forEach var="profissional" items="${profissionais}">
+                                    <option value="${profissional.id}">
+                                        ${profissional.nome}
+                                        (${profissional.especialidade.profissao.nome}
+                                        ${profissional.especialidade.nome})
+                                    </option>
+                                </c:forEach>
+                            </select>
+                            <p class="m-top10">
+                              <a href="<c:url value="/profissional-da-saude/novo"/>" target="_blank">
+                                Cadastrar um novo profissional
+                              </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="caixa-input clearfix">
                         <label class="lb grid-3">Data:</label>
                         <div class="ipt-wrapper">
                             <input name="compromisso.data" class="ipt ipt-data" type="text" size="10"/>
@@ -94,6 +113,7 @@
             
             $form.validate({
                 rules: {
+                    'compromisso.profissional.id': {required:true},
                     'compromisso.paciente.id': {required:true},
                     'compromisso.tipo.id': {required:true},
                     'compromisso.data': {required:true},
@@ -101,6 +121,7 @@
                     'compromisso.horarioFim': {required:true, horario:true}
                 },
                 messages: {
+                    'compromisso.profissional.id': {required:"Campo requerido!"},
                     'compromisso.paciente.id': {required:"Campo requerido!"},
                     'compromisso.tipo.id': {required:"Campo requerido!"},
                     'compromisso.data': {required:"Campo requerido!"},

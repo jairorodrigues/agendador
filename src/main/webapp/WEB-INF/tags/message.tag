@@ -13,9 +13,9 @@
     <c:when test="${requestScope['javax.servlet.error.exception'] != null}">
         <script type="text/javascript">
             $.notifyBar({
-                html: "${requestScope['javax.servlet.error.message']},
+                html: "${requestScope['javax.servlet.error.message']}",
                 cls: "ntfy-erro",
-                delay: 3000,
+                delay: 4000,
                 animationSpeed: "fast"
             });
         </script>

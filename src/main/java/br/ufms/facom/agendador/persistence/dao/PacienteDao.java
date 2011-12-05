@@ -36,7 +36,7 @@ public class PacienteDao implements PacienteRepository {
 
     @Override
     public void remove(Paciente paciente) {
-        em.remove(paciente);
+        em.remove(get(paciente.getId()));
     }
 
     @Override

@@ -24,6 +24,20 @@ body { background:url(../images/header-bg.gif) 0 0 repeat-x #FFF; }
 	margin-right:6px; padding:3px; text-transform:lowercase; font:normal normal 12px/14px arial; }
 .menu-principal .item:hover { background:#303030; }
 
+.jquery-notify-bar {
+    position:absolute;
+    top:0;
+    z-index:999;
+    text-align:center;
+    width:100%;
+    display:block; padding:18px 0;
+    font: normal bold 16px/18px arial;
+    background:#DDD;
+    border-bottom:1px solid #777;
+}
+
+.ntfy-erro { color:#FFF; background:#cd0a0a; border-bottom:#cd0a0a }
+
 /* corpo ***************************************/
 #corpo { padding:45px 0; }
 

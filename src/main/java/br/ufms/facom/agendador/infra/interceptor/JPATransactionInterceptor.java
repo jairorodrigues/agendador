@@ -61,10 +61,16 @@ public class JPATransactionInterceptor implements Interceptor {
             }
             
         } catch (Exception ex) {
+            
             if (tx.isActive()) {
                 logger.debug("rollback transaction");
                 tx.rollback();
             }
+            
+            logger.error("Exeção capturada!", ex);
+            
+            throw new InterceptionException(ex);
+                       
         }
     }
 }

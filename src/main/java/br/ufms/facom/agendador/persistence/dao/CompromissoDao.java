@@ -6,6 +6,8 @@ package br.ufms.facom.agendador.persistence.dao;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.ufms.facom.agendador.model.Compromisso;
+import br.ufms.facom.agendador.model.Paciente;
+import br.ufms.facom.agendador.model.ProfissionalDaSaude;
 import br.ufms.facom.agendador.repository.CompromissoRepository;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +30,7 @@ public class CompromissoDao implements CompromissoRepository {
     @Override
     public List<Compromisso> getCompromissosDeHoje() {
         
-        return em.createQuery("from Compromisso c where c.data=:hoje")
+        return em.createQuery("from Compromisso c where c.data=:hoje order by c.horarioInicio asc")
                 .setParameter("hoje", new Date())
                 .getResultList();
     }
@@ -58,6 +60,24 @@ public class CompromissoDao implements CompromissoRepository {
     @Override
     public void remove(Compromisso c) {
         em.remove(c);
+    }
+
+    @Override
+    public List<Compromisso> getCompromissos(ProfissionalDaSaude profissional, Date data) {
+        
+        return em.createQuery("from Compromisso c where c.profissional=:profissional and c.data=:data")
+                .setParameter("profissional", profissional)
+                .setParameter("data", data)
+                .getResultList();
+        
+    }
+
+    @Override
+    public List<Compromisso> getCompromissos(Paciente paciente, Date data) {
+        return em.createQuery("from Compromisso c where c.paciente=:paciente and c.data=:data")
+                .setParameter("paciente", paciente)
+                .setParameter("data", data)
+                .getResultList();
     }
     
 }

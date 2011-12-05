@@ -33,9 +33,12 @@
             	<h1 class="titulo-pagina">agendador</h1>
                 <div class="menu-principal">
                     <a class="item" href="<c:url value="/"/>">Página inicial</a>
-                    <a class="item" href="<c:url value="/pacientes"/>">Pacientes</a>
                     <a class="item" href="<c:url value="/compromissos"/>">Agenda</a>
+                    <a class="item" href="<c:url value="/pacientes"/>">Pacientes</a>                    
                     <a class="item" href="<c:url value="/convenios"/>">Convenios</a>
+                    <a class="item" href="<c:url value="/profissionais-da-saude"/>">Profissionais</a>
+                    <a class="item" href="<c:url value="/profissoes"/>">Profissões</a>
+                    <a class="item" href="<c:url value="/especialidades"/>">Especialidades</a>
                 </div>
                 <div class="caixa-usuario">
                     <a href="<c:url value="/minhas-informacoes"/>">Minhas informações</a> | <a href="<c:url value="/logout"/>">sair</a>

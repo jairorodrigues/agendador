@@ -33,6 +33,17 @@ public class Compromisso implements Serializable
     
     @ManyToOne
     private Paciente paciente;
+    
+    @ManyToOne
+    private ProfissionalDaSaude profissional;
+
+    public ProfissionalDaSaude getProfissional() {
+        return profissional;
+    }
+
+    public void setProfissional(ProfissionalDaSaude profissional) {
+        this.profissional = profissional;
+    }
 
     public Paciente getPaciente() {
         return paciente;
@@ -54,23 +65,22 @@ public class Compromisso implements Serializable
         return horarioFim;
     }
 
-    public void setHorarioFim(String horarioFim) {
+    public void setHorarioInicio(String horarioInicio) {
+        this.horarioInicio = new Horario(horarioInicio).toString();
         
-        verificarHorarioValido(horarioFim);
-        this.horarioFim = horarioFim;
+        verificarConsistencia();
+    }
+    
+    public void setHorarioFim(String horarioFim) {
+        this.horarioFim = new Horario(horarioFim).toString();
+        
+        verificarConsistencia();
     }
 
     public String getHorarioInicio() {
         return horarioInicio;
     }
-
-    public void setHorarioInicio(String horarioInicio) {
-        
-        verificarHorarioValido(horarioInicio);
-        
-        this.horarioInicio = horarioInicio;
-    }
-
+    
     public Long getId() {
         return id;
     }
@@ -122,8 +132,19 @@ public class Compromisso implements Serializable
         return "Compromisso{" + "data=" + data + ", tipo=" + tipo + "}";
     }
 
-    private void verificarHorarioValido(String horarioFim) {
-        if (!horarioFim.matches("^[0-23]{2}:[0-59]{2}$"))
-            throw new ArgumentoInvalidoException("Horário inválido");
+    private void verificarConsistencia() {
+        verificarConsistenciaDoHorarioDeInicioEFim();
+    }
+
+    private void verificarConsistenciaDoHorarioDeInicioEFim() {
+        
+        if (horarioInicio == null || horarioFim == null) return;
+        
+        if (!(new Horario(horarioInicio).venAntesDe(new Horario(horarioFim))))
+            throw new ArgumentoInvalidoException("Intervalo de horário inválido!");
+    }
+
+    public Intervalo getIntervalo() {
+        return new Intervalo(new Horario(horarioInicio), new Horario(horarioFim));
     }
 }

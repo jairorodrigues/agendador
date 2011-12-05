@@ -13,11 +13,11 @@
         <c:if test="${compromissosDeHoje.size() == 0}">
             <p>
                 Não há compromissos hoje. &nbsp;&nbsp;
-                <button type="button">
-                    <a href="<c:url value="/compromissos/novo"/>">
+                <form action="<c:url value="/compromissos/novo"/>" method="GET">
+                    <button type="submit" class="button">
                         + Cadastrar novo compromisso
-                    </a>
-                </button>
+                    </button>
+                </form>
             </p>
         </c:if>
         <c:if test="${compromissosDeHoje.size() > 0}">
@@ -26,6 +26,7 @@
                     <tr>
                         <td style="width:25px;">ID</td>
                         <td>Nome</td>
+                        <td>Profissional</td>
                         <td>Horario</td>
                     </tr>
                 </thead>
@@ -38,6 +39,10 @@
                                 <form action="<c:url value="/compromisso/${compromisso.id}"/>" method="POST">
                                     ${compromisso.tipo} com ${compromisso.paciente.nome} &nbsp;&nbsp;&nbsp;
                                 </form>
+                            </td>
+                            <td>
+                                ${compromisso.profissional.especialidade.profissao.nome}
+                                ${compromisso.profissional.nome}
                             </td>
                             <td><b>${compromisso.horarioInicio} às ${compromisso.horarioFim}</b></td>
                         </tr>
@@ -81,11 +86,11 @@
         <c:if test="${proximosCompromissos.size() == 0}">
             <p>
                 Não há proximo Compromissos. &nbsp;&nbsp;
-                <button type="button">
-                    <a href="<c:url value="/compromissos/novo"/>">
+                <form action="<c:url value="/compromissos/novo"/>" method="GET">
+                    <button type="submit" class="button">
                         + Cadastrar novo compromisso
-                    </a>
-                </button>
+                    </button>
+                </form>
             </p>
         </c:if>
         <c:if test="${proximosCompromissos.size() > 0}">
@@ -94,6 +99,7 @@
                     <tr>
                         <td style="width:25px;">ID</td>
                         <td>Nome</td>
+                        <td>Profissional</td>
                         <td>Data</td>
                         <td>Horario</td>
                     </tr>
@@ -107,6 +113,10 @@
                                 <form action="<c:url value="/compromisso/${compromisso.id}"/>" method="POST">
                                     ${compromisso.tipo} com ${compromisso.paciente.nome} &nbsp;&nbsp;&nbsp;
                                 </form>
+                            </td>
+                            <td>
+                                ${compromisso.profissional.especialidade.profissao.nome}
+                                ${compromisso.profissional.nome}
                             </td>
                             <td><fmt:formatDate value="${compromisso.data}" pattern="dd/MM/yyyy"/></td>
                             <td>${compromisso.horarioInicio} às ${compromisso.horarioFim}</td>

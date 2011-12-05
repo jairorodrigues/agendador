@@ -4,7 +4,7 @@
  */
 package br.ufms.facom.agendador.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  *
@@ -13,15 +13,17 @@ import javax.persistence.Entity;
 @Entity
 public class ProfissionalDaSaude extends Funcionario {
     
-    private Especializacao  especializacao;
-    private String          registroProfissional;
+    @ManyToOne
+    private Especialidade especialidade;
+    
+    private String registroProfissional;
 
-    public Especializacao getEspecializacao() {
-        return especializacao;
+    public Especialidade getEspecialidade() {
+        return especialidade;
     }
 
-    public void setEspecializacao(Especializacao especializacao) {
-        this.especializacao = especializacao;
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
     }
 
     public String getRegistroProfissional() {
@@ -31,5 +33,4 @@ public class ProfissionalDaSaude extends Funcionario {
     public void setRegistroProfissional(String registroProfissional) {
         this.registroProfissional = registroProfissional;
     }
-
 }
